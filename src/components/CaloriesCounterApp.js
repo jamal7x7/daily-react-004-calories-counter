@@ -21,6 +21,21 @@ const Header = (props) => (
   </header>
 )
 
+const FoodItem =(props) => (
+  props.breakfast.map( (e, i)=> {
+   return (
+    <div 
+      className="food-item"
+      key={i}
+    >
+      <p> {e.foodName} </p>
+      <div className="line"></div>
+      <p> {e.foodNameCalories + ' cal'}</p>
+    </div>
+   )
+  })
+)
+
 const MainWin = (props) => (
   <div className='mainWin'>
     <div className='left'>
@@ -38,21 +53,13 @@ const MainWin = (props) => (
         <p className='meal-type'> breakfast </p>
         <div className='table'>
           <div className='food'>
-            <div className='food-item'>
-              <div className="x">
-                <p> {props.foodName} </p>
-                <div className="line"></div>
-                <p> {props.foodNameCalories + ' cal'}</p>
-              </div>
-            </div>
-            <div className='food-item'>
-              <div className="x">
-                <p> bread</p>
-                <div className="line"></div>
-                <p> 365 cal</p>
-
-              </div>
-            </div>
+            
+              <FoodItem 
+                breakfast={props.breakfast}
+              
+              />
+            
+          
             
           </div>
 
@@ -61,33 +68,8 @@ const MainWin = (props) => (
           </div>
         </div>
       </div>
-      <div className='meal'>
-        <p className='meal-type'> breakfast </p>
-        <div className='table'>
-          <div className='food'>
-            <div className='food-item'>
-              <div className="x">
-                <div> {props.foodName} </div>
-                <div className="line"></div>
-                <div> {props.foodNameCalories + ' cal'}</div>
-              </div>
-            </div>
-            <div className='food-item'>
-              <div className="x">
-                <p> bread</p>
-                <div className="line"></div>
-                <p> 365 cal</p>
-
-              </div>
-            </div>
-            
-          </div>
-
-          <div className='bar'>
-            475 cal
-          </div>
-        </div>
-      </div>
+      
+     
 
     </div>
 
@@ -118,8 +100,42 @@ class CaloriesCounterApp extends Component {
 
   state = {
     modalIsOpen: false,
-    foodName: 'Orange jus',
-    foodNameCalories: 110 
+    breakfast: [ 
+      {
+        foodName: 'Orange jus',
+        foodNameCalories: 110 
+      },
+      {
+        foodName: 'Bread',
+        foodNameCalories: 365 
+      },
+      {
+        foodName: 'Choclat',
+        foodNameCalories: 200 
+      }
+    ],
+    lunch: [ 
+      {
+        foodName: 'Pizza',
+        foodNameCalories: 110 
+      },
+      {
+        foodName: 'Apple',
+        foodNameCalories: 365 
+      }
+    ],
+    dinner: [ 
+      {
+        foodName: 'Soup',
+        foodNameCalories: 310 
+      }
+    ],
+    snack: [ 
+      {
+        foodName: 'Energy bar',
+        foodNameCalories: 210
+      }
+    ]
   };
 
   openModal = () => {
@@ -141,8 +157,8 @@ class CaloriesCounterApp extends Component {
         <Header />
         <div className='container'>
           <MainWin 
-            foodName={this.state.foodName}
-            foodNameCalories={this.state.foodNameCalories}
+            breakfast={this.state.breakfast}
+            
           />
           <Btn openModal={this.openModal}/>
           <Modal
