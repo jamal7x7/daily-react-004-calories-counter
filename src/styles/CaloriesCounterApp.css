@@ -125,6 +125,7 @@ body {
   padding: 5px 15px;
   background: #073175;
   width: 300px;
+  margin-top: 10px;
   align-self: stretch;
   text-align: right;
 }
@@ -141,6 +142,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.x:hover {
+  background-image: linear-gradient(210deg, rgba(221, 142, 218, 0.5) 0%, rgba(66, 163, 249, 0.1) 100%);
+  box-shadow: 0 20px 10px -10px rgba(0, 0, 0, 0.3), 0 0px 80px 2px rgba(221, 142, 218, 0.2);
+}
+
+.x p {
+  margin: 5px;
 }
 
 .x .line {

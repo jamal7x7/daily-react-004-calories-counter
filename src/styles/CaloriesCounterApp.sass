@@ -138,6 +138,7 @@ body
       padding: 5px 15px 
       background: $bluel
       width: 300px
+      margin-top: 10px
       align-self: stretch
       text-align: right
     .food
@@ -152,6 +153,12 @@ body
   display: flex
   justify-content: space-between
   align-items: center
+  &:hover
+    background-image: linear-gradient(210deg, rgba(#DD8EDA, 0.5) 0%, rgba(#42A3F9, 0.1) 100%)
+    box-shadow: 0 20px 10px -10px rgba(0,0,0,0.3), 0 0px 80px 2px rgba(#DD8EDA, 0.2)
+
+  p
+    margin: 5px
   .line
     content: ''
     height: 2px

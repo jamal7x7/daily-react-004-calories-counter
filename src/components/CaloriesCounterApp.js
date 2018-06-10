@@ -40,9 +40,9 @@ const MainWin = (props) => (
           <div className='food'>
             <div className='food-item'>
               <div className="x">
-                <div> {props.foodName} </div>
+                <p> {props.foodName} </p>
                 <div className="line"></div>
-                <div> {props.foodNameCalories + ' cal'}</div>
+                <p> {props.foodNameCalories + ' cal'}</p>
               </div>
             </div>
             <div className='food-item'>
