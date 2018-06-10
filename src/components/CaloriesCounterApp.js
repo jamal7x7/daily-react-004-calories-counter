@@ -38,8 +38,49 @@ const MainWin = (props) => (
         <p className='meal-type'> breakfast </p>
         <div className='table'>
           <div className='food'>
-            <p>Orange jus</p>
-            <p>bread</p>
+            <div className='food-item'>
+              <div className="x">
+                <div> {props.foodName} </div>
+                <div className="line"></div>
+                <div> {props.foodNameCalories + ' cal'}</div>
+              </div>
+            </div>
+            <div className='food-item'>
+              <div className="x">
+                <p> bread</p>
+                <div className="line"></div>
+                <p> 365 cal</p>
+
+              </div>
+            </div>
+            
+          </div>
+
+          <div className='bar'>
+            475 cal
+          </div>
+        </div>
+      </div>
+      <div className='meal'>
+        <p className='meal-type'> breakfast </p>
+        <div className='table'>
+          <div className='food'>
+            <div className='food-item'>
+              <div className="x">
+                <div> {props.foodName} </div>
+                <div className="line"></div>
+                <div> {props.foodNameCalories + ' cal'}</div>
+              </div>
+            </div>
+            <div className='food-item'>
+              <div className="x">
+                <p> bread</p>
+                <div className="line"></div>
+                <p> 365 cal</p>
+
+              </div>
+            </div>
+            
           </div>
 
           <div className='bar'>
@@ -50,10 +91,16 @@ const MainWin = (props) => (
 
     </div>
 
-    <div className='graph'>
+    <div className='right'>
 
-        Calories
+      <div className="graph">
+      </div>
 
+      <div className="total">
+        <p className='total-label'>Total</p>
+        <p className='result'>1270 <span>cal</span></p>
+      </div>
+   
     </div>
 
   </div>
@@ -70,7 +117,9 @@ const Btn = (props) => (
 class CaloriesCounterApp extends Component {
 
   state = {
-    modalIsOpen: false
+    modalIsOpen: false,
+    foodName: 'Orange jus',
+    foodNameCalories: 110 
   };
 
   openModal = () => {
@@ -91,7 +140,10 @@ class CaloriesCounterApp extends Component {
       <div className='App'>
         <Header />
         <div className='container'>
-          <MainWin />
+          <MainWin 
+            foodName={this.state.foodName}
+            foodNameCalories={this.state.foodNameCalories}
+          />
           <Btn openModal={this.openModal}/>
           <Modal
             isOpen={this.state.modalIsOpen}
